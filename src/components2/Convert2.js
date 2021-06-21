@@ -39,7 +39,7 @@ export const Exchange2 = () => {
                 </p>
                 <p>
                     <label >ETH</label>
-                    <input id="stt" value={converted} />
+                    <input id="stt" readOnly value={converted} />
                 </p>
                 <p>
                     <button onClick={(e) => { transfer(e) }}>Exchange to ETH</button>

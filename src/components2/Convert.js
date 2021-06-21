@@ -37,7 +37,7 @@ export const Exchange = () => {
                 </p>
                 <p>
                     <label>STT</label>
-                    <input id="stt" value={converted} />
+                    <input id="stt" readOnly value={converted} />
                 </p>
                 <p>
                     <button onClick={(e) => { buy(e) }}>Buy Stable Token</button>
