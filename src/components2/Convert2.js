@@ -5,15 +5,15 @@ import BigNumber from 'big-number';
 
 const web3 = new Web3(Web3.givenProvider);
 const contractAddr = '0xbA3A173d469A9612f7d8dd8d56800597c970d686';
-const owner = '0x87BC5b7Ea1A2957ECcE8ae1858FC590744369902'
 const transfer = async (e) => {
     e.preventDefault();
     console.log(kolicina);
     const accounts = await window.ethereum.enable();
     const account = accounts[0];
+    const amount = BigNumber(kolicina * Math.pow(10, 18)).toString();
     const StableToken = new web3.eth.Contract(ContractABI, contractAddr, { from: account });
-    const gas = await StableToken.methods.burn(account, BigNumber(kolicina * Math.pow(10, 18))).estimateGas();
-    const result = await StableToken.methods.burn(account, BigNumber(kolicina * Math.pow(10, 18))).send({ gas });
+    const gas = await StableToken.methods.burn(account, amount).estimateGas();
+    const result = await StableToken.methods.burn(account, amount).send({ gas });
     console.log(result);
     console.log(gas);
 }
